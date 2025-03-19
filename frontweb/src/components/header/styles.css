@@ -1,0 +1,11 @@
+.main-header-container {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  background-color: var(--primary-color);
+  padding-left: 40px;
+}
+
+.main-header-title {
+  font-size: 24px;
+}
