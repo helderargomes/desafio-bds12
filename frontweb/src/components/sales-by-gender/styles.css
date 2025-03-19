@@ -3,7 +3,7 @@
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .sales-by-gender-info-container {
@@ -22,9 +22,30 @@
 .sales-by-gender-chart-container {
   width: 165px;
   height: 295px;
+  align-self: center;
 }
 
 .apexcharts-legend-series span {
   font-size: 16px;
   color: var(--grey-light-color) !important;
+}
+
+@media (min-width: 576px) {
+  .sales-by-gender-container {
+    padding: 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .sales-by-gender-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 190px;
+  }
+
+  .sales-by-gender-chart-container {
+    align-self: unset;
+  }
 }

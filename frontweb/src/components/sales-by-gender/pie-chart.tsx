@@ -14,7 +14,7 @@ function PieChart({ labels, name, series }: Props) {
         options={buildPieChartConfig(labels, name)}
         type="donut"
         width={165}
-        height={265}
+        height={295}
         series={series}
       />
     </div>

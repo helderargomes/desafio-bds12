@@ -24,8 +24,11 @@ export const buildPieChartConfig = (labels: string[] = [], name: string) => {
       labels: {
         colors: ['#b4bed2']
       },
-      fontFamily: 'Roboto, sans-serif',
-      fontSize: '18px'
+      fontFamily: 'Ubuntu, sans-serif',
+      fontSize: '16px',
+      itemMargin: {
+        vertical: 10
+      }
     },
     dataLabels: {
       enabled: true,

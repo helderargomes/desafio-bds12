@@ -12,3 +12,10 @@
   border: 1px solid var(--grey-light-color);
   border-radius: 4px;
 }
+
+@media (min-width: 576px) {
+  .filter-container {
+    margin-bottom: 40px;
+    padding: 40px;
+  }
+}
