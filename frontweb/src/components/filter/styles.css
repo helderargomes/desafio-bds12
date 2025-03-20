@@ -4,6 +4,10 @@
   padding: 40px 15px;
 }
 
+.filter-container form {
+  width: 270px;
+}
+
 .select-input {
   height: 50px;
   width: 270px;
@@ -11,6 +15,28 @@
   color: var(--grey-light-color);
   border: 1px solid var(--grey-light-color);
   border-radius: 4px;
+}
+
+.city-filter-select__control {
+  border: 1px solid var(--grey-light-color) !important;
+}
+
+.city-filter-select__indicator-separator {
+  display: none;
+}
+
+.city-filter-select__indicators svg {
+  width: 20px;
+  height: 20px;
+  color: var(--grey-light-color);
+}
+
+.city-filter-select__single-value {
+  color: var(--grey-light-color) !important;
+}
+
+.city-filter-select__menu {
+  color: var(--grey-light-color);
 }
 
 @media (min-width: 576px) {
