@@ -5,41 +5,49 @@ import Select from 'react-select';
 import { BASE_URL, requestBackend } from '../../utils/requests';
 import { Controller, useForm } from 'react-hook-form';
 
-type FilterData = {
-  city: City;
+type Props = {
+  onSubmitFilter: (city: City) => void;
 };
 
-function Filter() {
+type FilterData = {
+  city: City | null;
+};
+
+function Filter({ onSubmitFilter }: Props) {
   const [selectCities, setSelectCities] = useState<City[]>([]);
 
   useEffect(() => {
     requestBackend({ url: `${BASE_URL}/stores` }).then((response) => {
       setSelectCities(response.data);
-      console.log(response.data);
     });
   }, []);
 
-  const { register, handleSubmit, setValue, control } = useForm<FilterData>();
+  const { setValue, control } = useForm<FilterData>();
 
   const handleChangeCity = (value: City) => {
     setValue('city', value);
-  };
-
-  const onSubmit = (formData: FilterData) => {
-    console.log(formData);
+    onSubmitFilter(value);
   };
 
   return (
     <div className="filter-container base-card">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form>
         <div>
-          <Select
-            options={selectCities}
-            isClearable
-            placeholder={'Selecione uma cidade'}
-            classNamePrefix="city-filter-select"
-            getOptionLabel={(city: City) => city.name}
-            getOptionValue={(city: City) => String(city.id)}
+          <Controller
+            name="city"
+            control={control}
+            render={({ field }) => (
+              <Select
+                {...field}
+                options={selectCities}
+                isClearable
+                placeholder={'Selecione uma cidade'}
+                classNamePrefix="city-filter-select"
+                onChange={(value) => handleChangeCity(value as City)}
+                getOptionLabel={(city: City) => city.name}
+                getOptionValue={(city: City) => String(city.id)}
+              />
+            )}
           />
         </div>
       </form>

@@ -1,11 +1,16 @@
+import { formatPrice } from '../../utils/formatters';
 import PieChart from './pie-chart';
 import './styles.css';
 
-function SalesByGender() {
+type Props = {
+  totalSales: number;
+};
+
+function SalesByGender({ totalSales }: Props) {
   return (
     <div className="base-card sales-by-gender-container">
       <div className="sales-by-gender-info-container">
-        <h1 className="sales-by-gender-title">R$746.484,00</h1>
+        <h1 className="sales-by-gender-title">R$ {formatPrice(totalSales)}</h1>
         <span className="sales-by-date-subtitle">Total de vendas</span>
       </div>
       <div className="sales-by-gender-chart-container">
