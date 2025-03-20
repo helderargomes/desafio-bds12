@@ -1,4 +1,5 @@
 import { ApexOptions } from 'apexcharts';
+import { formatPrice } from '../../utils/formatters';
 
 export const buildPieChartConfig = (labels: string[] = [], name: string) => {
   return {
@@ -33,7 +34,7 @@ export const buildPieChartConfig = (labels: string[] = [], name: string) => {
     dataLabels: {
       enabled: true,
       formatter: function (val) {
-        return val + '%';
+        return formatPrice(Number(val)) + '%';
       }
     },
     plotOptions: {

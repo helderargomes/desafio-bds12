@@ -2,8 +2,20 @@
   padding: 10px;
 }
 
+.sales-by-gender-chart-container {
+  width: 165px;
+  height: 295px;
+  align-self: center;
+}
+
 @media (min-width: 576px) {
   .app-container {
     padding: 40px;
+  }
+}
+
+@media (min-width: 992px) {
+  .sales-by-gender-chart-container {
+    align-self: unset;
   }
 }
